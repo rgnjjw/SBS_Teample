@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 6927848999809604281}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,6 +354,8 @@ MonoBehaviour:
   atk: 50
   def: 1
   actCount: 2
+  hpText: {fileID: 0}
+  actCountText: {fileID: 0}
 --- !u!1 &8468066079552233896
 GameObject:
   m_ObjectHideFlags: 0
