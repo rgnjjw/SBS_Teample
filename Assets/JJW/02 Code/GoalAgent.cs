@@ -1,35 +1,52 @@
+using System;
 using System.Collections.Generic;
-using Member.JJW.Code.GoalAgent;
-using NUnit.Framework;
+using JJW._02_Code.Enemy;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace JJW._02_Code
 {
-    public abstract class GoalAgent<TSelf> where TSelf : GoalAgent<TSelf>
+    public abstract class GoalAgent : MonoBehaviour
     {
-        public abstract TSelf RealTypeInstance { get; }
-        private List<AgentGoal<TSelf>> _goals;
-        private AgentGoal<TSelf> _currentGoal;
+        public EnemyInfo EnemyInfo => enemyInfo;
+        public NavMeshAgent NavMeshAgent {get; private set;}
+        public Transform Target {get; private set;}
+        
+        [SerializeField] private EnemyInfo enemyInfo;
+        [SerializeField] private List<AgentGoal> goals;
+        
+        private AgentGoal _currentGoal;
 
-        public void AddGoal(AgentGoal<TSelf> agentGoal)
+        private void Awake()
         {
-            _goals.Add(agentGoal);
+            Target = GameObject.Find("Player").transform;
+            NavMeshAgent = GetComponent<NavMeshAgent>();
+            foreach (var goal in  goals)
+            {
+                goal.Init(this);
+            }
         }
 
-        public void Tick()
+        private void Update()
         {
-            foreach (var goal in _goals)
+            Tick();
+        }
+
+        private void Tick()
+        {
+            foreach (var goal in goals)
             {
-                if (goal == _currentGoal && _currentGoal.CanContinue(this))
+                if (goal == _currentGoal && _currentGoal.CanContinue())
                 {
-                    _currentGoal.Tick(this);
+                    _currentGoal.Tick();
                     return;
                 }
 
-                if (goal.CanExecute(this))
+                if (goal.CanExecute())
                 {
                     _currentGoal = goal;
-                    _currentGoal.Tick(this);
+                    _currentGoal.Tick();
                     return;
                 }
             }

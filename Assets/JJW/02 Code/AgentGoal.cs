@@ -3,10 +3,17 @@ using UnityEngine;
 
 namespace JJW._02_Code
 {
-    public abstract class AgentGoal<TAgent> : ScriptableObject where TAgent : GoalAgent<TAgent> 
+    public abstract class AgentGoal : ScriptableObject
     {
-        public abstract bool CanExecute(GoalAgent<TAgent> agent);
-        public abstract bool CanContinue(GoalAgent<TAgent> agent);
-        public abstract bool Tick(GoalAgent<TAgent> agent);
+        protected GoalAgent OwnerAgent;
+
+        public void Init(GoalAgent agent)
+        {
+            OwnerAgent = agent;
+        }
+
+        public abstract bool CanExecute();
+        public abstract bool CanContinue();
+        public abstract void Tick();
     }
 }
