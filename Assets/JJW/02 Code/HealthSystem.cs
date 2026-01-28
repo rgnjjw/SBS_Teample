@@ -1,16 +1,39 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour
+namespace JJW._02_Code
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class HealthSystem : MonoBehaviour
     {
+        public NotifyValue<int> CurrentHp { get; }
+        public NotifyValue<int> MaxHp { get; }
         
-    }
+        [SerializeField] private List<IHealthObserver> observers = new List<IHealthObserver>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void Init(int maxHp)
+        {
+            MaxHp.Value = maxHp;
+            CurrentHp.Value = maxHp;
+
+            CurrentHp.OnValueChanged += (beforeHp, currentHp) =>
+            {
+                if (beforeHp - currentHp < 0)
+                {
+                    foreach (var observer in  observers)
+                    {
+                        observer.OnHealthIncreased(beforeHp, currentHp);
+                    }
+                }
+                else
+                {
+                    foreach (var observer in observers)
+                    {
+                        observer.OnHealthDecreased(beforeHp, currentHp);
+                    }
+                }
+
+                
+            };
+        }
     }
 }
