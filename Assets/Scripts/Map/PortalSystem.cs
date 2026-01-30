@@ -25,9 +25,16 @@ public class PortalSystem : MonoBehaviour
             portalManager.PlayerTransform.transform.position =
                 new Vector3
                 (
-                    portalManager.TpSpotTransform.position.x + directionX, 
-                    portalManager.TpSpotTransform.position.y, 
-                    portalManager.TpSpotTransform.position.z + directionZ
+                    portalManager.PlayerTpSpotTransform.position.x + directionX, 
+                    portalManager.PlayerTpSpotTransform.position.y, 
+                    portalManager.PlayerTpSpotTransform.position.z + directionZ
+                );
+            portalManager.MainCameraTransform.transform.position =
+                new Vector3
+                (
+                    portalManager.MainCameraTpSpotTransform.position.x + directionX, 
+                    portalManager.MainCameraTpSpotTransform.position.y, 
+                    portalManager.MainCameraTpSpotTransform.position.z + directionZ
                 );
         }
     }
@@ -36,19 +43,23 @@ public class PortalSystem : MonoBehaviour
     {
         if (portalManager.Direction == 0) //¾Õ
         {
-            directionX = 20;
+            directionX = 0;
+            directionZ = 20;
         }
         else if (portalManager.Direction == 1) //µÚ
         {
-            directionX = -20;
+            directionX = 0;
+            directionZ = -20;
         }
         else if (portalManager.Direction == 2) //¿Þ
         {
-            directionZ = -20;
+            directionX = -20;
+            directionZ = 0;
         }
         else if (portalManager.Direction == 3) //¿À
         {
-            directionZ = 20;
+            directionX = 20;
+            directionZ = 0;
         }
         else
         {
