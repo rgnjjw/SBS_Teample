@@ -4,6 +4,8 @@ public class PortalSystem : MonoBehaviour
 {
     PortalManager portalManager;
 
+    [SerializeField] GameObject player;
+
     int directionX;
     int directionZ;
 
@@ -14,7 +16,7 @@ public class PortalSystem : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,13 +24,16 @@ public class PortalSystem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             DirectionCheck();
-            portalManager.PlayerTransform.transform.position =
-                new Vector3
-                (
-                    portalManager.TpSpotTransform.position.x + directionX, 
-                    portalManager.TpSpotTransform.position.y, 
-                    portalManager.TpSpotTransform.position.z + directionZ
-                );
+            if (portalManager != null)
+            {
+                player.transform.position =
+                    new Vector3
+                    (
+                        portalManager.TpSpotTransform.position.x + directionX,
+                        portalManager.TpSpotTransform.position.y,
+                        portalManager.TpSpotTransform.position.z + directionZ
+                    );
+            }
         }
     }
 
@@ -36,7 +41,8 @@ public class PortalSystem : MonoBehaviour
     {
         if (portalManager.Direction == 0) //¾Õ
         {
-            directionX = 20;
+            directionX = 0;
+            directionZ = 15;
         }
         else if (portalManager.Direction == 1) //µÚ
         {
