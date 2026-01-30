@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Top1
   m_EditorClassIdentifier: 
   itemID: 1
-  canOverlap: 0
+  canOverlap: 1
   isInteractivity: 1
   isConsumable: 0
   itemType: 32
