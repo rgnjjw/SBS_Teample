@@ -11,10 +11,10 @@ public class PlayerHit : PlayerState
 
     private void Update()
     {
-        hpText.text = "hp : " + hp;
+        hpText.text = "hp : " + maxHp;
         actCountText.text = "actCount : " + actCount;
 
-        if (hp <= 0)
+        if (maxHp <= 0)
         {
             SceneManager.LoadScene("MainScene");
         }
@@ -26,6 +26,6 @@ public class PlayerHit : PlayerState
 
     public void OnTestKey(InputAction.CallbackContext context)
     {
-        hp = 0;
+        maxHp = 0;
     }
 }
