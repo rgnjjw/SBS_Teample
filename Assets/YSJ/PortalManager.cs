@@ -1,6 +1,4 @@
-using NUnit.Framework;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class PortalManager : MonoBehaviour
 {
@@ -11,6 +9,7 @@ public class PortalManager : MonoBehaviour
     public GameObject PortalObject;
     public Transform TpSpotTransform;
     public Transform PlayerTransform;
+    public GameObject Player;
     public int Direction; //0:¾Õ, 1:µÚ, 2:¿Þ, 3:¿À
 
     void Awake()
@@ -20,7 +19,7 @@ public class PortalManager : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
