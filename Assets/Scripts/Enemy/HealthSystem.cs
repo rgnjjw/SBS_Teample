@@ -7,8 +7,8 @@ namespace Enemy
 {
     public class HealthSystem : MonoBehaviour
     {
-        public NotifyValue<int> CurrentHp { get; }
-        public NotifyValue<int> MaxHp { get; }
+        public NotifyValue<int> CurrentHp { get; set; }
+        public NotifyValue<int> MaxHp { get; set; }
         
         [SerializeField] private List<IHealthObserver> observers = new List<IHealthObserver>();
 
@@ -31,6 +31,7 @@ namespace Enemy
                     foreach (var observer in observers)
                     {
                         observer.OnHealthDecreased(beforeHp, currentHp);
+                        Debug.Log("체력닳음");
                     }
                 }
 

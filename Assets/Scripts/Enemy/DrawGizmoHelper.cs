@@ -1,24 +1,26 @@
-using System;
+using Enemy.EnemyAttack;
 using UnityEngine;
 
 namespace Enemy
 {
     public class DrawGizmoHelper : MonoBehaviour
     {
-        [SerializeField] private EnemyAttackHitboxSO[] enemyAttacks;
+        [SerializeField] private EnemyAttackHitboxSO[] enemyAttackHitboxSO;
+
         private void OnDrawGizmos()
         {
-            if(enemyAttacks == null)
+            if (enemyAttackHitboxSO == null || enemyAttackHitboxSO.Length == 0)
                 return;
-            
-            Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
-            
-            foreach (var enemyAttack in enemyAttacks)
+
+            Gizmos.matrix = transform.localToWorldMatrix;
+
+            foreach (var hitbox in enemyAttackHitboxSO)
             {
-                Gizmos.color = enemyAttack.GizmoColor;
-                Gizmos.DrawCube(enemyAttack.GizmoOffset,enemyAttack.GizmoSize);
+                if (hitbox == null) continue;
+
+                Gizmos.color = hitbox.Color;
+                Gizmos.DrawWireCube(hitbox.Offset, hitbox.Size);
             }
-            
         }
     }
 }
