@@ -18,6 +18,7 @@ namespace Enemy.EnemyGoal
 
         public override void Tick()
         {
+            ownerAgent.NavMeshAgent.speed = ChaseSpeed;
             ownerAgent.NavMeshAgent.SetDestination(ownerAgent.Target.position);
         }
     }

@@ -26,7 +26,7 @@ namespace Enemy.EnemyAttack
             {
                 // healthSystem.CurrentHp.Value -= damage;
                 Debug.Log("플레이어 공격함");
-
+                
 #if UNITY_EDITOR
                 Debug.Log($"플레이어에게 {damage}만큼 대미지 적용");
 #endif
