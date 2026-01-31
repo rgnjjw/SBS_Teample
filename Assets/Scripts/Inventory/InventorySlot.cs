@@ -53,9 +53,7 @@ public class InventorySlot : MonoBehaviour
 
         if (item.Type <= ItemType.Equipment_WEAPON)
         {
-            //textCount.text = "";
-            //юс╫ц
-            textCount.text = itemCount.ToString();
+            textCount.text = "";
         }
         else
         {
