@@ -24,7 +24,9 @@ public class InventorySlot : MonoBehaviour
 
     [Header("아이템 슬롯에 있는 UI 오브젝트")]
     [SerializeField] private Image itemImage;
+    [SerializeField] private GameObject explanToolTip;
     [SerializeField] TextMeshProUGUI textCount;
+    [SerializeField] TextMeshProUGUI explanText;
 
     // 아이템 이미지의 투명도 조절
     private void SetColor(float _alpha)
@@ -50,6 +52,7 @@ public class InventorySlot : MonoBehaviour
         item = nItem;
         itemCount = count;
         itemImage.sprite = item.Image;
+        //explanText.text = item.Explanation;
 
         if (item.Type <= ItemType.Equipment_WEAPON)
         {
@@ -85,4 +88,15 @@ public class InventorySlot : MonoBehaviour
 
         textCount.text = "";
     }
+
+    public void OpenExplanation()
+    {
+        Debug.Log("slot click");
+        if (item != null)
+        {
+            explanToolTip.SetActive(true);
+        }
+    }
+
+   
 }
