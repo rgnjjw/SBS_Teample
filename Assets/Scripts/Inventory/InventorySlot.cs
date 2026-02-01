@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
@@ -92,7 +93,7 @@ public class InventorySlot : MonoBehaviour
         textCount.text = "";
     }
 
-    public void OpenExplanation()
+    public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("slot click");
         if (item != null)
@@ -101,5 +102,5 @@ public class InventorySlot : MonoBehaviour
         }
     }
 
-   
+
 }
