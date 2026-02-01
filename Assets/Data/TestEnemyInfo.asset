@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e8b1b56da74ea2a0373762792b75c9, type: 3}
   m_Name: TestEnemyInfo
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
-  <Desc>k__BackingField: 
+  <Name>k__BackingField: "\uD14C\uC2A4\uD2B8 \uC801 \uC815\uBCF4"
+  <Desc>k__BackingField: "\uD14C\uC2A4\uD2B8 \uC801 \uC815\uBCF4\uC785\uB2C8\uB2E4"
   <MaxHp>k__BackingField: 100
   <DefensePower>k__BackingField: 10
   <AttackPower>k__BackingField: 10

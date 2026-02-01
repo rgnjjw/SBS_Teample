@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e759b100754454287801a4454dd5c87, type: 3}
-  m_Name: TestChase
+  m_Script: {fileID: 11500000, guid: 95260f0a066a4c84accd576b8bcb966b, type: 3}
+  m_Name: TestEnemyAttackHitboxSO
   m_EditorClassIdentifier: 
-  <DetectionRange>k__BackingField: 1000
-  <ChaseSpeed>k__BackingField: 10
+  <Size>k__BackingField: {x: 1, y: 1.16, z: 5}
+  <Offset>k__BackingField: {x: 0, y: 0.16, z: 2.5}
+  <Color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}

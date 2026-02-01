@@ -7,11 +7,11 @@ namespace GoalAgent
 {
     public abstract class GoalAgent : MonoBehaviour
     {
-        public EnemyInfo EnemyInfo => enemyInfo;
+        public EnemyInfoSO EnemyInfoSO => enemyInfoSO;
         public NavMeshAgent NavMeshAgent {get; private set;}
         public Transform Target {get; private set;}
         
-        [SerializeField] private EnemyInfo enemyInfo;
+        [SerializeField] private EnemyInfoSO enemyInfoSO;
         [SerializeField] private List<AgentGoal> goals;
         
         private AgentGoal _currentGoal;

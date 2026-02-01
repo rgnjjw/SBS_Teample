@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: TestMeleeAttack
   m_EditorClassIdentifier: 
   <DetectionRange>k__BackingField: 2
-  <Target>k__BackingField: {fileID: 0}
   <AttackCoolTime>k__BackingField: 2
-  <AdditionalMeleeAttackDamage>k__BackingField: 20
+  <AttackAction>k__BackingField: {fileID: 11400000, guid: dca5068a45b9a024d93653a34276e09b, type: 2}
