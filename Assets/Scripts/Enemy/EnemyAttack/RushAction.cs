@@ -6,9 +6,9 @@ namespace Enemy.EnemyAttack
 {
     public class RushAction
     {
-        public IEnumerator Rush(EnemyRushSO enemyRushSO)
-        {
-            
-        }
+        // public IEnumerator Rush(EnemyRushSO enemyRushSO)
+        // {
+        //     
+        // }
     }
 }
