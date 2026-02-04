@@ -17,6 +17,10 @@ public enum ItemType
     Equipment_AMULET = 1 << 7, //128
     Equipment_WEAPON = 1 << 8, //256
 
+    //스킬
+    Skill_Active = 1 << 9,
+    Skill_Passive = 1 << 10,
+
     //물약 아이템
 }
 
@@ -111,6 +115,17 @@ public class Item : ScriptableObject
         get
         {
             return explanation;
+        }
+    }
+
+    [Header("효과")]
+    [SerializeField] float buff;
+
+    public float Buff
+    {
+        get
+        {
+            return buff;
         }
     }
 }

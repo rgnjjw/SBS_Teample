@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class ItemRaycast : MonoBehaviour
 {
-    private bool isStorageActive = false; //아이템 습득이 가능한가?
+    private bool isStorageActive = false; //상자를 열수 있나?
     private ItemPickUp currentItem; //활성화시 현재 등록된 아이템
 
     [Header("상자 인벤토리")]
@@ -60,6 +60,7 @@ public class ItemRaycast : MonoBehaviour
             {
                 storageInventory.SetActive(true);
                 playerAttack.uiClicking = true;
+                inventory.uiOpen = 2;
                 Time.timeScale = 0f;
             }
             else if (storageInventory.activeSelf)
@@ -67,6 +68,7 @@ public class ItemRaycast : MonoBehaviour
                 Time.timeScale = 1f;
                 storageInventory.SetActive(false);
                 playerAttack.uiClicking = false;
+                inventory.uiOpen = 0;
                 isStorageActive = false;
             }
         }
@@ -84,7 +86,7 @@ public class ItemRaycast : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Storage" && !isStorageActive)
+        if (other.tag == "Storage" && !isStorageActive && inventory.uiOpen == 0)
         {
             isStorageActive = true;
         }

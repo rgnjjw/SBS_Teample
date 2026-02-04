@@ -16,6 +16,7 @@ public class StorageToInventory : MonoBehaviour
     private EquipmentItemSlot[] equipmentSlots;
 
     [SerializeField] private InventoryMain inventory;
+    PlayerState playerState;
 
     private void Awake()
     {
@@ -23,6 +24,10 @@ public class StorageToInventory : MonoBehaviour
         a_InventorySlots = a_InventorySlotsParent.GetComponentsInChildren<InventorySlot>();
         equipmentSlots = equipmentSlotsPartent.GetComponentsInChildren<EquipmentItemSlot>();
     }
+
+    /// <summary>
+    /// 상자에 있는 아이템 인벤토리 창으로 일괄수령
+    /// </summary>
     public void GetAll()
     {
         InventorySlot[] allSlots = inventory.GetAllItems();
@@ -105,6 +110,10 @@ public class StorageToInventory : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 인벤토리에 있는 장비 장비창으로 창작 InventorySlot에서 기능
+    /// </summary>
+    /// <param name="inventorySlot"></param>
     public void Install(InventorySlot inventorySlot)
     {
         Item newItem = null;
@@ -120,6 +129,7 @@ public class StorageToInventory : MonoBehaviour
                         equipmentSlots[i].AddItem(inventorySlot.Item);
                         inventorySlot.ClearSlot();
                         inventorySlot.AddItem(newItem);
+                        BuffGet(equipmentSlots[i].Item);
                         return;
                     }
                 }
@@ -129,10 +139,48 @@ public class StorageToInventory : MonoBehaviour
                     {
                         equipmentSlots[i].AddItem(inventorySlot.Item);
                         inventorySlot.ClearSlot();
+                        BuffGet(equipmentSlots[i].Item);
                         return;
                     }
                 }
             }
+        }
+    }
+
+    private void BuffGet(Item item)
+    {
+        playerState = inventory.player.GetComponent<PlayerState>();
+        if (item.Type == ItemType.Equipment_HEAD)
+        {
+
+        }
+        else if (item.Type == ItemType.Equipment_TOP)
+        {
+
+        }
+        else if (item.Type == ItemType.Equipment_BOTTOMS)
+        {
+
+        }
+        else if (item.Type == ItemType.Equipment_SHOES)
+        {
+
+        }
+        else if (item.Type == ItemType.Equipment_PENDANT)
+        {
+
+        }
+        else if (item.Type == ItemType.Equipment_RING)
+        {
+
+        }
+        else if (item.Type == ItemType.Equipment_AMULET)
+        {
+
+        }
+        else if (item.Type == ItemType.Equipment_WEAPON)
+        {
+
         }
     }
 }
