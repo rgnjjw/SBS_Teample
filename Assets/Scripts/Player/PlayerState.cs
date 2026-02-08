@@ -10,6 +10,9 @@ public class PlayerState : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag)
+        if (other.CompareTag("Stage"))
+        {
+
+        }
     }
 }
