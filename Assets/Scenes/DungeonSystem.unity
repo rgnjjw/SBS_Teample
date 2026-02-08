@@ -498,7 +498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1405470925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,6 +1019,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784d08b0841951d45a98785d2257f2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stage: {fileID: 2619334703123621966, guid: e616edc21ac447144baad3ba5f60526e, type: 3}
+  spacing: 35
+  StageList: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

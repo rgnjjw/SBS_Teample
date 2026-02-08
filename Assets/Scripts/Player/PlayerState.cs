@@ -7,4 +7,9 @@ public class PlayerState : MonoBehaviour
     protected float atk = 10f; //공격력
     protected float def = 1f; //방어력
     protected int actCount = 2; //행동력
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag)
+    }
 }
