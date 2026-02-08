@@ -1,18 +1,10 @@
+using Enemy;
 using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
-    protected float maxHp = 20f; //Ã¼·Â
-    protected float curHp = 20f; //Ã¼·Â
-    protected float atk = 10f; //°ø°Ý·Â
-    protected float def = 1f; //¹æ¾î·Â
-    protected int actCount = 2; //Çàµ¿·Â
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Stage"))
-        {
-
-        }
-    }
+    protected int maxHp = 20; //Ã¼ï¿½ï¿½
+    protected float atk = 10f; //ï¿½ï¿½ï¿½Ý·ï¿½
+    protected float def = 1f; //ï¿½ï¿½ï¿½ï¿½
+    protected int actCount = 2; //ï¿½àµ¿ï¿½ï¿½
 }

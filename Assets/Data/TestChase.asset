@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestChase
   m_EditorClassIdentifier: 
   <DetectionRange>k__BackingField: 1000
-  <AdditionalChaseSpeed>k__BackingField: 5
+  <ChaseSpeed>k__BackingField: 10
