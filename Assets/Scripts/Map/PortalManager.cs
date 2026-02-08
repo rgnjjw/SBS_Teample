@@ -1,8 +1,14 @@
-using NUnit.Framework;
-using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using Unity.Cinemachine;
+using UnityEngine;
+using UnityEngine.UI;
+public enum WallDirection
+{
+    North,
+    South,
+    East,
+    West
+}
 
 public class PortalManager : MonoBehaviour
 {
@@ -15,6 +21,12 @@ public class PortalManager : MonoBehaviour
     public Transform PlayerTpSpotTransform;
     public Transform MainCameraTpSpotTransform;
     [Space(10f)]
+    public Dictionary<WallDirection, GameObject> NearStage = new Dictionary<WallDirection, GameObject>();
+    public List<PortalManager> LinkedStageList = new List<PortalManager>();
+
+
+
+    [HideInInspector] public GameObject ThisStage;
     [HideInInspector] public GameObject PlayerObject;
     [HideInInspector] public GameObject MainCameraObject;
     [HideInInspector] public Image PortalEffectImage;
@@ -25,6 +37,7 @@ public class PortalManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        ThisStage = gameObject;
         PlayerObject = GameObject.FindGameObjectWithTag("Player");
         MainCameraObject = GameObject.FindGameObjectWithTag("MainCamera");
         CinemachineCamera = GameObject.Find("PlayerCamera").GetComponent<CinemachineCamera>();
